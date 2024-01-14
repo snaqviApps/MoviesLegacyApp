@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_item_popular_movies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/bottom_nav_menuItem_popular_movies" />
+    <item
+        android:id="@+id/nav_item_upcoming_movies"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ic_launcher_foreground"
+        android:title="@string/bottom_nav_menuItem_upcoming_movies" />
+</menu>

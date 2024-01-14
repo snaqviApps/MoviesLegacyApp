@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/movies_graph"
+    app:startDestination="@id/popularMoviesFragment">
+
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="org.edu.movieslegacyapp.view.ui.PopularMoviesFragment"
+        android:label="PopularMoviesFragment" >
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragmnet"
+            app:destination="@id/detailsMovieFragmnet" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsMovieFragmnet"
+        android:name="org.edu.movieslegacyapp.view.ui.DetailsMovieFragmnet"
+        android:label="DetailsMovieFragmnet" />
+</navigation>
