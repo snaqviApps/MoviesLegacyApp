@@ -5,8 +5,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.movieslegacyapp.R
 import com.example.movieslegacyapp.databinding.ActivityMainBinding
-import org.edu.movieslegacyapp.view.ui.PopularMoviesFragment
-import org.edu.movieslegacyapp.view.ui.UpComingMoviesFragment
+import org.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment
+import org.edu.movieslegacyapp.movieslist.presentation.view.screen.UpComingMoviesFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,8 +21,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId) {
                 R.id.nav_item_popular_movies -> setCurrentFragment(PopularMoviesFragment())
                 R.id.nav_item_popular_movies -> setCurrentFragment(UpComingMoviesFragment())
-                else -> {
-                }
+                else -> {  }
             }
             true
         }

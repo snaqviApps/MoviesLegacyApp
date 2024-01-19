@@ -1,8 +1,8 @@
-package org.edu.movieslegacyapp.api
+package org.edu.movieslegacyapp.movieslist.data.remote
 
-import androidx.lifecycle.LiveData
 import com.example.movieslegacyapp.BuildConfig.API_KEY
-import org.edu.movieslegacyapp.data.MovieListDTO
+import org.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
+import org.edu.movieslegacyapp.movieslist.util.Category
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -11,12 +11,14 @@ import retrofit2.http.Query
 interface MoviesApi {
     @GET("movie/{category}")
     suspend fun getMovieList (
-        @Path("category") category: String,
-        @Query("page") page: Int,
+        @Path("category") category: String = Category.POPULAR,      // default
+        @Query("page") page: Int = 1,                               // default
         @Query("api_key") apikey: String = API_KEY
-//    ) : MovieListDTO
+    ) : MovieListDTO?
 //    ) : Response<MovieListDTO>
-    ) : LiveData<MovieListDTO>
+//    ) : LiveData<MovieListDTO>
+
+
 
     companion object {
         const val IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"

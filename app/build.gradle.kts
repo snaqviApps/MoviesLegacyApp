@@ -90,6 +90,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.github.bumptech.glide:glide:$glideVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 

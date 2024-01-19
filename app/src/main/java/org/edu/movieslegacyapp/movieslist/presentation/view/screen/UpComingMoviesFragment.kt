@@ -1,4 +1,4 @@
-package org.edu.movieslegacyapp.view.ui
+package org.edu.movieslegacyapp.movieslist.presentation.view.screen
 
 import androidx.fragment.app.Fragment
 
