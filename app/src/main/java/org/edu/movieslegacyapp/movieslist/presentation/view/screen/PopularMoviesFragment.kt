@@ -33,20 +33,28 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
     }
 
     private fun setupObserver(moviesListViewModel: MoviesListViewModel) {
-        moviesListViewModel.moviesState.observe(viewLifecycleOwner, Observer { uIState ->
+//        moviesListViewModel.moviesState.observe(viewLifecycleOwner, Observer { uIState ->         // optimized below
+//        moviesListViewModel.moviesState.observe(viewLifecycleOwner, { uIState ->                  // needs to move 'lambda' out of parentheses
+        moviesListViewModel.moviesState.observe(viewLifecycleOwner) { uIState ->
             when (uIState) {
-                is MoviesListRepository.UIState.EmptyState -> {  }
+                is MoviesListRepository.UIState.EmptyState -> {}
                 is MoviesListRepository.UIState.SuccessState -> {
                     val movies = uIState.movieListDTO
-                    Toast.makeText(activity, "MoviesList: ${movies?.results?.toList()}", Toast.LENGTH_LONG).show()
-                    val sortedMoviesList= movies?.results?.sortedWith(compareBy { it.popularity })       // sorted per popularity
+                    Toast.makeText(
+                        activity,
+                        "MoviesList: ${movies?.results?.toList()}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    val sortedMoviesList =
+                        movies?.results?.sortedWith(compareBy { it.popularity })       // sorted per popularity
                     Log.d("mLogs", "movies pages: ${movies?.totalPages}")
                 }
+
                 is MoviesListRepository.UIState.ErrorState -> {
                     Toast.makeText(activity, "Error: ${uIState.error}", Toast.LENGTH_LONG).show()
                 }
             }
-        })
+        }
 
     }
 
