@@ -1,4 +1,4 @@
-package org.edu.movieslegacyapp.movieslist.data.remote.response
+package learn.edu.movieslegacyapp.movieslist.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

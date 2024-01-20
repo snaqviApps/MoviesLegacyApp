@@ -1,7 +1,7 @@
-package org.edu.movieslegacyapp.di
+package learn.edu.movieslegacyapp.di
 
-import org.edu.movieslegacyapp.movieslist.data.remote.MoviesApi
-import org.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
+import learn.edu.movieslegacyapp.movieslist.data.remote.MoviesApi
+import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
 import javax.inject.Inject
 
 class MoviesService {

@@ -1,4 +1,4 @@
-package org.edu.movieslegacyapp.movieslist.presentation.view.screen
+package learn.edu.movieslegacyapp.movieslist.presentation.view.screen
 
 import android.os.Bundle
 import android.util.Log
@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.movieslegacyapp.R
-import org.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
-import org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
-import org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
+import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
+import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
 
 /**
  * Handles Popular Movie data (only Poster-view)
@@ -22,8 +22,13 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
         super.onViewCreated(view, savedInstanceState)
 
         val repository = MoviesListRepository()
-        val moviesListViewModelFactory = MoviesListViewModelFactory(repository)
-        moviesListViewModel = ViewModelProvider(this,  moviesListViewModelFactory)[MoviesListViewModel::class.java]
+//        val moviesListViewModelFactory = MoviesListViewModelFactory(repository)
+        val moviesListViewModelFactory = MoviesListViewModelFactory()
+
+
+//        moviesListViewModel = ViewModelProvider(this,  moviesListViewModelFactory)[MoviesListViewModel::class.java]
+        moviesListViewModel = ViewModelProvider(this)[MoviesListViewModel::class.java]
+
         setupObserver(moviesListViewModel)
         setupAdapter()
     }
@@ -55,7 +60,6 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
                 }
             }
         }
-
     }
 
 }

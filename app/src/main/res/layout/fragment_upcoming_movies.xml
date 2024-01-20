@@ -9,7 +9,7 @@
     tools:context="learn.edu.movieslegacyapp.MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rViewPopularMovies"
+        android:id="@+id/rvUpcomingMovies"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="8dp"

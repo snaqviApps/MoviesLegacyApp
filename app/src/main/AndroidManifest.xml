@@ -15,7 +15,7 @@
         android:theme="@style/Theme.MoviesLegacyApp"
         tools:targetApi="31">
         <activity
-            android:name="org.edu.movieslegacyapp.MainActivity"
+            android:name="learn.edu.movieslegacyapp.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

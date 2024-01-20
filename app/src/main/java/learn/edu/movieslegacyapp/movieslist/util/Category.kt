@@ -1,4 +1,4 @@
-package org.edu.movieslegacyapp.movieslist.util
+package learn.edu.movieslegacyapp.movieslist.util
 
 object Category {
     const val POPULAR = "popular"

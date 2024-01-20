@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/popularMoviesFragment"
-        android:name="org.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment"
+        android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment"
         android:label="PopularMoviesFragment" >
         <action
             android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragmnet"
@@ -14,6 +14,6 @@
     </fragment>
     <fragment
         android:id="@+id/detailsMovieFragmnet"
-        android:name="org.edu.movieslegacyapp.movieslist.presentation.view.screen.DetailsMovieFragment"
+        android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.DetailsMovieFragment"
         android:label="DetailsMovieFragmnet" />
 </navigation>

@@ -1,17 +1,24 @@
-package org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel
+package learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
-import org.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
+import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import javax.inject.Inject
 
-class MoviesListViewModel(private val repo : MoviesListRepository) : ViewModel() {
 
-    val moviesState = repo.moviesUIState
-    val moviesLoadError = repo.moviesLoadError
-    val loadingCheck = repo.loadingCheck
+//class MoviesListViewModel(private val repo : MoviesListRepository) : ViewModel() {
+class MoviesListViewModel : ViewModel() {
+
+
+    @Inject
+    lateinit var moviesListRepository : MoviesListRepository
+
+    val moviesState = moviesListRepository.moviesUIState
+    val moviesLoadError = moviesListRepository.moviesLoadError
+    val loadingCheck = moviesListRepository.loadingCheck
 
     init {
         prepareMoviesData()
@@ -20,7 +27,7 @@ class MoviesListViewModel(private val repo : MoviesListRepository) : ViewModel()
     private fun prepareMoviesData() {
         Log.d("in-viewModel", "calling prepareMoviesData")
         viewModelScope.launch {
-            repo.networkCall()
+            moviesListRepository.networkCall()
         }
     }
 

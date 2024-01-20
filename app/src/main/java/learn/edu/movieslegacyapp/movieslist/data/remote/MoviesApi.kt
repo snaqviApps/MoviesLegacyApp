@@ -1,8 +1,8 @@
-package org.edu.movieslegacyapp.movieslist.data.remote
+package learn.edu.movieslegacyapp.movieslist.data.remote
 
 import com.example.movieslegacyapp.BuildConfig.API_KEY
-import org.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
-import org.edu.movieslegacyapp.movieslist.util.Category
+import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
+import learn.edu.movieslegacyapp.movieslist.util.Category
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

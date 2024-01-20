@@ -1,12 +1,12 @@
-package org.edu.movieslegacyapp
+package learn.edu.movieslegacyapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.movieslegacyapp.R
 import com.example.movieslegacyapp.databinding.ActivityMainBinding
-import org.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment
-import org.edu.movieslegacyapp.movieslist.presentation.view.screen.UpComingMoviesFragment
+import learn.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment
+import learn.edu.movieslegacyapp.movieslist.presentation.view.screen.UpComingMoviesFragment
 
 class MainActivity : AppCompatActivity() {
 
