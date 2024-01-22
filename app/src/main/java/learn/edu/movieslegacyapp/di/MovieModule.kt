@@ -1,13 +1,13 @@
 package learn.edu.movieslegacyapp.di
 
-import com.example.movieslegacyapp.BuildConfig.BASE_URL
+
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
+import learn.edu.movieslegacyapp.BuildConfig.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import learn.edu.movieslegacyapp.movieslist.data.remote.MoviesApi
-import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -37,9 +37,9 @@ class MovieModule {
         return MoviesService()
     }
 
-    @Provides
-    fun providesMoviesListRepository() : MoviesListRepository {
-        return MoviesListRepository()
-    }
+//    @Provides
+//    fun providesMoviesListRepository(moviesService: MoviesService) : MoviesListRepository {
+//        return MoviesListRepository(moviesService)
+//    }
 
 }

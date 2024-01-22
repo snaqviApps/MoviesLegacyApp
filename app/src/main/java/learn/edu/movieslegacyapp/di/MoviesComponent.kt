@@ -7,6 +7,6 @@ import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 interface MoviesComponent {
 
     fun inject(moviesService : MoviesService)
-
     fun inject(moviesListRepository: MoviesListRepository)
+
 }

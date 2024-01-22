@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_margin="8dp"
+    android:layout_width="wrap_content"
+    android:layout_marginTop="6dp"
+    app:flow_horizontalAlign="center"
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/popular_poster"
-        android:layout_width="match_parent"
-        android:layout_height="280dp"
+        android:id="@+id/movie_poster"
+        android:layout_width="208dp"
+        android:layout_height="300dp"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:layout_margin="2dp"
+        android:layout_marginEnd="2dp"
         android:contentDescription="@string/popular_poster_for_opening_page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+</GridLayout>

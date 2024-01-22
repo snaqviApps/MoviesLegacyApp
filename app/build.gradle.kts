@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.movieslegacyapp"
+    namespace = "learn.edu.movieslegacyapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.movieslegacyapp"
+        applicationId = "learn.edu.movieslegacyapp"
         minSdk = 28
         targetSdk = 34
         versionCode = 1

@@ -11,8 +11,13 @@ import learn.edu.movieslegacyapp.di.MoviesService
 import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
 import learn.edu.movieslegacyapp.movieslist.util.CoreConstants.Companion.MAX_TIME_OUT
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class MoviesListRepository {
+
+//class MoviesListRepository @Inject constructor (
+//    private val moviesService: MoviesService )
 
     @Inject
     lateinit var moviesService: MoviesService
@@ -26,12 +31,12 @@ class MoviesListRepository {
         DaggerMoviesComponent.create().inject(this)
     }
 
-    suspend fun networkCall() {
+    suspend fun networkCall(movieCategoryIsPopular: Boolean) {
             withContext(Dispatchers.IO) {
                 withTimeout(MAX_TIME_OUT) {
                     try {
                         Log.d("in-repo", " networkCall in try-block")
-                        val moviesInfo = moviesService.getMovies()
+                        val moviesInfo = moviesService.getMovies(movieCategoryIsPopular)
                         if (moviesInfo?.results?.isNotEmpty() == true) {
                             Log.d("in-repo: ", "${moviesInfo.totalPages}")
                             _moviesUIState.postValue(UIState.SuccessState(movieListDTO = moviesInfo))
