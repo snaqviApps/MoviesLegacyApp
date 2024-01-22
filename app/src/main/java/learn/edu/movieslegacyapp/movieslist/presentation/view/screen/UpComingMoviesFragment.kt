@@ -14,8 +14,7 @@ import learn.edu.movieslegacyapp.movieslist.presentation.view.adapter.MovieRecyc
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
 
-class UpComingMoviesFragment (
-): Fragment(R.layout.fragment_upcoming_movies) {
+class UpComingMoviesFragment : Fragment(R.layout.fragment_upcoming_movies) {
 
     private lateinit var repository: MoviesListRepository
     private lateinit var moviesRecyclerViewAdapter : MovieRecyclerViewAdapter
@@ -41,16 +40,16 @@ class UpComingMoviesFragment (
             when (uIState) {
                 is MoviesListRepository.UIState.EmptyState -> {}
                 is MoviesListRepository.UIState.SuccessState -> {
-                    val movies = uIState.movieListDTO
-                    val sortedMoviesList = movies?.results?.sortedWith(compareBy { it.popularity })       // sorted per popularity
+                    val upComingMovies = uIState.movieListDTO
 
-                    // passing data to Popular-MovieAdapter
-                    moviesRecyclerViewAdapter = MovieRecyclerViewAdapter(sortedMoviesList)
-                    binding.rViewUpcomingMovies.adapter = moviesRecyclerViewAdapter
-                    binding.rViewUpcomingMovies.layoutManager = GridLayoutManager(requireContext(), 2)
-                    Log.d("mLogs", "upcoming movies pages: ${movies?.totalPages}")
+                    // passing data to Upcoming-MovieAdapter
+                    upComingMovies?.let {
+                        moviesRecyclerViewAdapter = MovieRecyclerViewAdapter(it.results)
+                        binding.rViewUpcomingMovies.adapter = moviesRecyclerViewAdapter
+                        binding.rViewUpcomingMovies.layoutManager = GridLayoutManager(requireContext(), 2)
+                        Log.d("mLogs", "upcoming movies pages: ${it.totalPages}")
+                    }
                 }
-
                 is MoviesListRepository.UIState.ErrorState -> {
                     Toast.makeText(activity, "Error: ${uIState.error}", Toast.LENGTH_LONG).show()
                 }

@@ -17,11 +17,9 @@ import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesLi
 /**
  * Handles Popular Movie data (only Poster-view)
  */
-class PopularMoviesFragment
-//    private val repositoryInFragmentsFactory: MoviesListRepository)           // Fragment constructor doesn't work with Dagger
-    : Fragment(R.layout.fragment_popular_movies) {
+class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
 
-//    @Inject
+//    @Inject --> Inject gives run-time error of 'lateinit property 'repository' has not been initialized
     private lateinit var repository: MoviesListRepository
 
     private lateinit var moviesRecyclerViewAdapter : MovieRecyclerViewAdapter
@@ -44,7 +42,6 @@ class PopularMoviesFragment
         moviesListViewModel: MoviesListViewModel,
         binding: FragmentPopularMoviesBinding
     ) {
-//        moviesListViewModel.moviesState.observe(viewLifecycleOwner, Observer { uIState ->         // optimized below
         moviesListViewModel.moviesState.observe(viewLifecycleOwner) { uIState ->
             when (uIState) {
                 is MoviesListRepository.UIState.EmptyState -> {}

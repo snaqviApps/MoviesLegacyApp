@@ -8,6 +8,7 @@ import learn.edu.movieslegacyapp.BuildConfig.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import learn.edu.movieslegacyapp.movieslist.data.remote.MoviesApi
+import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -22,7 +23,7 @@ class MovieModule {
         .build()
 
     @Provides
-    fun providesCountriesApi() : MoviesApi {
+    fun providesMoviesApi() : MoviesApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
@@ -37,9 +38,10 @@ class MovieModule {
         return MoviesService()
     }
 
-//    @Provides
+    @Provides
 //    fun providesMoviesListRepository(moviesService: MoviesService) : MoviesListRepository {
-//        return MoviesListRepository(moviesService)
-//    }
+    fun providesMoviesListRepository() : MoviesListRepository {
+        return MoviesListRepository()
+    }
 
 }
