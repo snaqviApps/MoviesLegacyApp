@@ -3,6 +3,7 @@ package learn.edu.movieslegacyapp.di
 import dagger.Component
 import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
+import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
 
 /**
  * This class contains the 'injection' mechanism for the destination below, as:
@@ -21,5 +22,6 @@ interface MoviesComponent {
     fun inject(moviesService : MoviesService)
     fun inject(moviesListRepository: MoviesListRepository)
     fun inject(moviesListViewModel: MoviesListViewModel)
+    fun inject(viewModelFactory: MoviesListViewModelFactory)
 
 }

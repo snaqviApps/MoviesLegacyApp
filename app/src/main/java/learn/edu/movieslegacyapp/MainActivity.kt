@@ -14,11 +14,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        val moviesFragmentsFactory = MoviesFragmentsFactory(repository)               // factory doesn't work while Using Dagger, for now
         bindingMain = ActivityMainBinding.inflate(layoutInflater)
-//        supportFragmentManager.fragmentFactory = moviesFragmentsFactory
         setContentView(bindingMain.root)
-
         bindingMain.bottomNavView.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.nav_item_popular_movies -> setCurrentFragment(PopularMoviesFragment())

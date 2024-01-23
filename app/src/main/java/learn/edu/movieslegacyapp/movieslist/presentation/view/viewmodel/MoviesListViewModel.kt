@@ -5,25 +5,21 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import learn.edu.movieslegacyapp.di.DaggerMoviesComponent
 import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
 import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 import javax.inject.Inject
 
-class MoviesListViewModel @Inject constructor(
-    categoryDefault: Boolean
+class MoviesListViewModel @Inject constructor (
+    private val moviesListRepository: MoviesListRepository,
+    categoryIsPopular: Boolean
 ) : ViewModel() {
-
-    @Inject
-    lateinit var moviesListRepository: MoviesListRepository
 
     val moviesState: LiveData<MoviesListRepository.UIState>
     val moviesLoadError: LiveData<Boolean>
     val loadingCheck: LiveData<Boolean>
 
     init {
-        DaggerMoviesComponent.create().inject(this)     // destination is receiving all 'Dependencies' via Dependency-Injection
-        prepareMoviesData(categoryDefault)
+        prepareMoviesData(categoryIsPopular)
 
         moviesState = moviesListRepository.moviesUIState
         moviesLoadError = moviesListRepository.moviesLoadError
