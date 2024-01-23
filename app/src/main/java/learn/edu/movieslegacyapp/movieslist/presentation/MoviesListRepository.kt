@@ -16,16 +16,17 @@ import javax.inject.Singleton
 @Singleton
 class MoviesListRepository {
 
-//class MoviesListRepository @Inject constructor (
-//    private val moviesService: MoviesService )
-
     @Inject
     lateinit var moviesService: MoviesService
 
     private val _moviesUIState = MutableLiveData<UIState>()
     val moviesUIState: LiveData<UIState> = _moviesUIState
-    val loadingCheck = MutableLiveData<Boolean>()
-    val moviesLoadError = MutableLiveData<Boolean>()
+
+    private val _loadingCheck = MutableLiveData<Boolean>()
+    val loadingCheck : LiveData<Boolean> = _loadingCheck
+
+    private val _moviesLoadError = MutableLiveData<Boolean>()
+    val moviesLoadError : LiveData<Boolean> = _moviesLoadError
 
     init {
         DaggerMoviesComponent.create().inject(this)

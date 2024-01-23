@@ -16,16 +16,14 @@ import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesLi
 
 class UpComingMoviesFragment : Fragment(R.layout.fragment_upcoming_movies) {
 
-    private lateinit var repository: MoviesListRepository
     private lateinit var moviesRecyclerViewAdapter : MovieRecyclerViewAdapter
     private var fragmentUpcomingMoviesBinding: FragmentUpcomingMoviesBinding? = null
-
     private lateinit var moviesListViewModel: MoviesListViewModel
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        repository = MoviesListRepository()
-        val moviesListViewModelFactory = MoviesListViewModelFactory(repository, false)
+        val moviesListViewModelFactory = MoviesListViewModelFactory(false)
         moviesListViewModel = ViewModelProvider(this,  moviesListViewModelFactory)[MoviesListViewModel::class.java]
         val binding = FragmentUpcomingMoviesBinding.bind(view)
         fragmentUpcomingMoviesBinding = binding

@@ -9,22 +9,15 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import learn.edu.movieslegacyapp.R
 import learn.edu.movieslegacyapp.databinding.FragmentPopularMoviesBinding
-import learn.edu.movieslegacyapp.di.DaggerMoviesComponent
 import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 import learn.edu.movieslegacyapp.movieslist.presentation.view.adapter.MovieRecyclerViewAdapter
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
-import javax.inject.Inject
 
 /**
  * Handles Popular Movie data (only Poster-view)
  */
 class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
-
-
-    // needs to move to ViewModel
-    @Inject
-    lateinit var repository: MoviesListRepository
 
     private lateinit var moviesRecyclerViewAdapter : MovieRecyclerViewAdapter
     private var fragmentPopularMoviesBinding : FragmentPopularMoviesBinding? = null
@@ -33,11 +26,8 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        DaggerMoviesComponent.create().inject(this)
-
-        val moviesListViewModelFactory = MoviesListViewModelFactory(repository, true)
+        val moviesListViewModelFactory = MoviesListViewModelFactory( true)
         moviesListViewModel = ViewModelProvider(this,  moviesListViewModelFactory)[MoviesListViewModel::class.java]
-
         val binding = FragmentPopularMoviesBinding.bind(view)
         fragmentPopularMoviesBinding = binding
         setupObserver(moviesListViewModel, binding)
