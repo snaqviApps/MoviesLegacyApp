@@ -10,6 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
 import learn.edu.movieslegacyapp.movieslist.presentation.IMoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.util.UIState
 import javax.inject.Inject
 
 class MoviesListViewModel @Inject constructor (
@@ -53,16 +54,6 @@ class MoviesListViewModel @Inject constructor (
                         UIState.ErrorState("").displayError("in-exceptionMsg: ${exception.message}")
                     }
                 }
-        }
-    }
-
-    sealed class UIState {
-        data object EmptyState : UIState()
-        class SuccessState(val movieListDTO: MovieListDTO?) : UIState()
-        class ErrorState(val error: String) : UIState() {
-            fun displayError(error: String) {
-                println("This is error: $error")
-            }
         }
     }
 

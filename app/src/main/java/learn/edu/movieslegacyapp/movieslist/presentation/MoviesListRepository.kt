@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MoviesListRepository @Inject constructor (
+class MoviesListRepository @Inject constructor(
     private val moviesService: MoviesService
 
 ) : IMoviesListRepository {
@@ -17,9 +17,8 @@ class MoviesListRepository @Inject constructor (
     }
 
     override suspend fun getMoviesList(
-        category: Boolean, page: Int
-    ): MovieListDTO? = moviesService.getMovies(false)
+        category: Boolean,
+        page: Int
+    ): MovieListDTO? = moviesService.getMovies(category, page)
 
 }
-
-

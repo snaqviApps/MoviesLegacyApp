@@ -14,10 +14,10 @@ class MoviesService {
       DaggerMoviesComponent.create().inject(this)
     }
 
-    suspend fun getMovies(movieCategoryIsPopular: Boolean): MovieListDTO? {
+    suspend fun getMovies(movieCategoryIsPopular: Boolean, page: Int): MovieListDTO? {
         return when(movieCategoryIsPopular) {
-            true -> api.getMovieList()
-            false -> api.getMovieList(Category.UPCOMING)
+            true -> api.getMovieList(Category.POPULAR, page)
+            false -> api.getMovieList(Category.UPCOMING, page)
         }
     }
 

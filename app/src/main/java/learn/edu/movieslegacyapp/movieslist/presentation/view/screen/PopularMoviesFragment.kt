@@ -12,6 +12,8 @@ import learn.edu.movieslegacyapp.databinding.FragmentPopularMoviesBinding
 import learn.edu.movieslegacyapp.movieslist.presentation.view.adapter.MovieRecyclerViewAdapter
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
+import learn.edu.movieslegacyapp.movieslist.util.UIState
+
 
 /**
  * Handles Popular Movie data (only Poster-view)
@@ -39,8 +41,8 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
     ) {
         moviesListViewModel.moviesUIState.observe(viewLifecycleOwner) { uIState ->
             when (uIState) {
-                is MoviesListViewModel.UIState.EmptyState -> {}
-                is MoviesListViewModel.UIState.SuccessState -> {
+                is UIState.EmptyState -> {}
+                is UIState.SuccessState -> {
                     val movies = uIState.movieListDTO
                     val sortedMoviesList =
                         movies?.results?.sortedWith(compareBy { it.popularity })       // sorted per popularity
@@ -54,7 +56,7 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
                     Log.d("mLogs", "movies pages: ${movies?.totalPages}")
                 }
 
-                is MoviesListViewModel.UIState.ErrorState -> {
+                is UIState.ErrorState -> {
                     Toast.makeText(activity, "Error: ${uIState.error}", Toast.LENGTH_LONG).show()
                     Log.d("mLogs", "Error: ${uIState.error}")
                 }

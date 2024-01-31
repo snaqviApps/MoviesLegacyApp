@@ -12,6 +12,7 @@ import learn.edu.movieslegacyapp.databinding.FragmentUpcomingMoviesBinding
 import learn.edu.movieslegacyapp.movieslist.presentation.view.adapter.MovieRecyclerViewAdapter
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
+import learn.edu.movieslegacyapp.movieslist.util.UIState
 
 class UpComingMoviesFragment : Fragment(R.layout.fragment_upcoming_movies) {
 
@@ -35,8 +36,8 @@ class UpComingMoviesFragment : Fragment(R.layout.fragment_upcoming_movies) {
     ) {
         moviesListViewModel.moviesUIState.observe(viewLifecycleOwner) { uIState ->
             when (uIState) {
-                is MoviesListViewModel.UIState.EmptyState -> {}
-                is MoviesListViewModel.UIState.SuccessState -> {
+                is UIState.EmptyState -> {}
+                is UIState.SuccessState -> {
                     val upComingMovies = uIState.movieListDTO
 
                     // passing data to Upcoming-MovieAdapter
@@ -47,7 +48,7 @@ class UpComingMoviesFragment : Fragment(R.layout.fragment_upcoming_movies) {
                         Log.d("mLogs", "upcoming movies pages: ${it.totalPages}")
                     }
                 }
-                is MoviesListViewModel.UIState.ErrorState -> {
+                is UIState.ErrorState -> {
                     Toast.makeText(activity, "Error: ${uIState.error}", Toast.LENGTH_LONG).show()
                 }
             }
