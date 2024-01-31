@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import learn.edu.movieslegacyapp.R
 import learn.edu.movieslegacyapp.databinding.FragmentPopularMoviesBinding
-import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 import learn.edu.movieslegacyapp.movieslist.presentation.view.adapter.MovieRecyclerViewAdapter
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
@@ -19,15 +18,16 @@ import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesLi
  */
 class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
 
-    private lateinit var moviesRecyclerViewAdapter : MovieRecyclerViewAdapter
-    private var fragmentPopularMoviesBinding : FragmentPopularMoviesBinding? = null
+    private lateinit var moviesRecyclerViewAdapter: MovieRecyclerViewAdapter
+    private var fragmentPopularMoviesBinding: FragmentPopularMoviesBinding? = null
 
     private lateinit var moviesListViewModel: MoviesListViewModel
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val moviesListViewModelFactory = MoviesListViewModelFactory( true)
-        moviesListViewModel = ViewModelProvider(this,  moviesListViewModelFactory)[MoviesListViewModel::class.java]
+        val moviesListViewModelFactory = MoviesListViewModelFactory(true)
+        moviesListViewModel =
+            ViewModelProvider(this, moviesListViewModelFactory)[MoviesListViewModel::class.java]
         val binding = FragmentPopularMoviesBinding.bind(view)
         fragmentPopularMoviesBinding = binding
         setupObserver(moviesListViewModel, binding)
@@ -37,22 +37,24 @@ class PopularMoviesFragment : Fragment(R.layout.fragment_popular_movies) {
         moviesListViewModel: MoviesListViewModel,
         binding: FragmentPopularMoviesBinding
     ) {
-        moviesListViewModel.moviesState.observe(viewLifecycleOwner) { uIState ->
+        moviesListViewModel.moviesUIState.observe(viewLifecycleOwner) { uIState ->
             when (uIState) {
-                is MoviesListRepository.UIState.EmptyState -> {}
-                is MoviesListRepository.UIState.SuccessState -> {
+                is MoviesListViewModel.UIState.EmptyState -> {}
+                is MoviesListViewModel.UIState.SuccessState -> {
                     val movies = uIState.movieListDTO
-                    val sortedMoviesList = movies?.results?.sortedWith(compareBy { it.popularity })       // sorted per popularity
+                    val sortedMoviesList =
+                        movies?.results?.sortedWith(compareBy { it.popularity })       // sorted per popularity
 
                     // passing data to Popular-MovieAdapter
                     moviesRecyclerViewAdapter = MovieRecyclerViewAdapter(sortedMoviesList)
                     binding.rViewPopularMovies.adapter = moviesRecyclerViewAdapter
-                    binding.rViewPopularMovies.layoutManager = GridLayoutManager(requireContext(), 2)
+                    binding.rViewPopularMovies.layoutManager =
+                        GridLayoutManager(requireContext(), 2)
 
                     Log.d("mLogs", "movies pages: ${movies?.totalPages}")
                 }
 
-                is MoviesListRepository.UIState.ErrorState -> {
+                is MoviesListViewModel.UIState.ErrorState -> {
                     Toast.makeText(activity, "Error: ${uIState.error}", Toast.LENGTH_LONG).show()
                     Log.d("mLogs", "Error: ${uIState.error}")
                 }
