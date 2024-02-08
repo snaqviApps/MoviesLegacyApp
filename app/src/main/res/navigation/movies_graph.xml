@@ -9,11 +9,25 @@
         android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment"
         android:label="PopularMoviesFragment" >
         <action
-            android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragmnet"
-            app:destination="@id/detailsMovieFragmnet" />
+            android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment"
+            app:popUpTo="@id/popularMoviesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/detailsMovieFragmnet"
+        android:id="@+id/upComingMoviesFragment"
+        android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.UpComingMoviesFragment"
+        android:label="UpComingMoviesFragment" >
+        <action
+            android:id="@+id/action_upComingMoviesFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment"
+            app:popUpTo="@id/upComingMoviesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsMovieFragment"
         android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.DetailsMovieFragment"
-        android:label="DetailsMovieFragmnet" />
+        android:label="DetailsMovieFragment" >
+        <action
+            android:id="@+id/action_detailsMovieFragment_to_popularMoviesFragment"
+            app:destination="@id/popularMoviesFragment" />
+    </fragment>
 </navigation>

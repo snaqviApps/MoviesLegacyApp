@@ -1,4 +1,4 @@
-package learn.edu.movieslegacyapp.movieslist.presentation
+package learn.edu.movieslegacyapp.movieslist.data.repository
 
 import learn.edu.movieslegacyapp.di.DaggerMoviesComponent
 import learn.edu.movieslegacyapp.di.MoviesService

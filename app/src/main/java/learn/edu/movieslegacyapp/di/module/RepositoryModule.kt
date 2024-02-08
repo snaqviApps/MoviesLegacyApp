@@ -2,8 +2,8 @@ package learn.edu.movieslegacyapp.di.module
 
 import dagger.Binds
 import dagger.Module
-import learn.edu.movieslegacyapp.movieslist.presentation.IMoviesListRepository
-import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.data.repository.IMoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.data.repository.MoviesListRepository
 import javax.inject.Singleton
 
 @Module
