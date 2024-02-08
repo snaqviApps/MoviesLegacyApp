@@ -1,12 +1,11 @@
 package learn.edu.movieslegacyapp.di
 
-import androidx.fragment.app.FragmentFactory
 import dagger.Component
+import learn.edu.movieslegacyapp.MainActivity
 import learn.edu.movieslegacyapp.di.module.MovieModule
 import learn.edu.movieslegacyapp.di.module.RepositoryModule
 import learn.edu.movieslegacyapp.movieslist.data.repository.MoviesListRepository
 import learn.edu.movieslegacyapp.movieslist.presentation.view.MoviesFragmentFactory
-import learn.edu.movieslegacyapp.movieslist.presentation.view.adapter.MovieRecyclerViewAdapter
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
 import javax.inject.Singleton
@@ -35,6 +34,7 @@ interface MoviesComponent {
     fun inject(moviesListViewModel: MoviesListViewModel)
     fun inject(viewModelFactory: MoviesListViewModelFactory)
 
-    fun inject(fragmentFactory: MoviesFragmentFactory)
+    fun inject(moviesFragmentFactory: MoviesFragmentFactory)
+    fun inject(mainActivity: MainActivity)
 
 }

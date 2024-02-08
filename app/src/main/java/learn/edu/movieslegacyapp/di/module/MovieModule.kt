@@ -1,6 +1,5 @@
 package learn.edu.movieslegacyapp.di.module
 
-
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -40,11 +39,11 @@ class MovieModule {
     }
 
     @Provides
-    fun providesMovieRecyclerViewAdapter() : MovieRecyclerViewAdapter {
+    fun providesMovieRecyclerViewAdapter(): MovieRecyclerViewAdapter {
         return MovieRecyclerViewAdapter(
             movies = null
         )
     }
-
 }
+
 

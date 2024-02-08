@@ -40,6 +40,7 @@ class MovieRecyclerViewAdapter @Inject constructor(
                 .with(binding.root)
                 .load(IMAGE_BASE_URL + movieDTO?.posterPath)
                 .into(binding.moviePoster)
+
             binding.moviePoster.setOnClickListener {
                 imageClickListener?.let {
                     it(movieDTO?.backdropPath ?: "")
