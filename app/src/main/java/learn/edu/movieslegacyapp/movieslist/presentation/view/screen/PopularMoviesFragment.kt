@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -43,8 +44,7 @@ class PopularMoviesFragment @Inject constructor(
         moviesListViewModel: MoviesListViewModel,
         binding: FragmentPopularMoviesBinding
     ) {
-//        moviesListViewModel.moviesUIState.observe(viewLifecycleOwner, Observer { uIState ->
-        moviesListViewModel.moviesUIState.observe(viewLifecycleOwner) { uIState ->
+        moviesListViewModel.moviesUIState.observe(viewLifecycleOwner, Observer { uIState ->
             when (uIState) {
                 is UIState.EmptyState -> {}
                 is UIState.SuccessState -> {
@@ -68,8 +68,7 @@ class PopularMoviesFragment @Inject constructor(
                     Log.d("mLogs", "Error: ${uIState.error}")
                 }
             }
-//         })
-         }
+         })
 
     }
 
