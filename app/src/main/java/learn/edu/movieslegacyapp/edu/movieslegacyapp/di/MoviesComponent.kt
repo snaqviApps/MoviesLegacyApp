@@ -1,7 +1,7 @@
-package org.edu.movieslegacyapp.di
+package learn.edu.movieslegacyapp.edu.movieslegacyapp.di
 
 import dagger.Component
-import org.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 
 @Component(modules = [MovieModule::class])
 interface MoviesComponent {

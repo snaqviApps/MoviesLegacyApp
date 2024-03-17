@@ -1,4 +1,4 @@
-package org.edu.movieslegacyapp.movieslist.presentation
+package learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,10 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
-import org.edu.movieslegacyapp.di.DaggerMoviesComponent
-import org.edu.movieslegacyapp.di.MoviesService
-import org.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
-import org.edu.movieslegacyapp.movieslist.util.CoreConstants.Companion.MAX_TIME_OUT
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.di.DaggerMoviesComponent
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.di.MoviesService
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.util.CoreConstants.Companion.MAX_TIME_OUT
 import javax.inject.Inject
 
 class MoviesListRepository {

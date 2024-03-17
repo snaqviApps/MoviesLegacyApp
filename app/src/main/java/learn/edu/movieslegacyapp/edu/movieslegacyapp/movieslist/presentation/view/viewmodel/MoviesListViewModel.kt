@@ -1,11 +1,11 @@
-package org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel
+package learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.view.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import org.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
-import org.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 
 class MoviesListViewModel(private val repo : MoviesListRepository) : ViewModel() {
 

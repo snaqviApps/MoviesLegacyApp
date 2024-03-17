@@ -1,8 +1,8 @@
-package org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel
+package learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.view.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import org.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
 
 
 class MoviesListViewModelFactory(private val moviesListRepository: MoviesListRepository) : ViewModelProvider.Factory {

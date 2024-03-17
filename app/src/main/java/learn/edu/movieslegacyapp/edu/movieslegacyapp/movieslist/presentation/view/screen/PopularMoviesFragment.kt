@@ -1,16 +1,15 @@
-package org.edu.movieslegacyapp.movieslist.presentation.view.screen
+package learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.view.screen
 
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.movieslegacyapp.R
-import org.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
-import org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
-import org.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
+import learn.edu.movieslegacyapp.R
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
+import learn.edu.movieslegacyapp.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
 
 /**
  * Handles Popular Movie data (only Poster-view)
