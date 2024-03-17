@@ -19,7 +19,7 @@ class MoviesFragmentFactory @Inject constructor(
 //                movieRecyclerViewAdapter = movieRecyclerViewAdapter,
             )
 
-            UpComingMoviesFragment::class.java.name -> UpComingMoviesFragment()
+            UpComingMoviesFragment::class.java.name -> UpComingMoviesFragment<String>()
 
             else -> super.instantiate(classLoader, className)
         }

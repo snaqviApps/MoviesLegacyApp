@@ -13,7 +13,9 @@ class MovieRecyclerViewAdapter @Inject constructor(
     private var movies: List<MovieDTO>?,
 ) : RecyclerView.Adapter<MovieRecyclerViewAdapter.MovieViewHolder>() {
 
-    private var imageClickListener: ((String) -> Unit)? = null
+    private var imageClickListener: ((Any) -> Unit)? = null
+//        (<T: Any>(t: T) -> Unit)?) = null
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val movieRowPopularBinding = MovieRowPopularBinding.inflate(layoutInflater)
@@ -26,7 +28,7 @@ class MovieRecyclerViewAdapter @Inject constructor(
     }
 
     override fun getItemCount(): Int = movies?.size as Int
-    fun setOnImageClickListener(listener: (String) -> Unit) {
+    fun<T> setOnImageClickListener(listener: (Any) -> Unit) {
         imageClickListener = listener
     }
 

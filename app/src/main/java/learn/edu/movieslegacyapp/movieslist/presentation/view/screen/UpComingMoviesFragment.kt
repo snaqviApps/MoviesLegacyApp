@@ -16,7 +16,7 @@ import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesLi
 import learn.edu.movieslegacyapp.movieslist.util.UIState
 import javax.inject.Inject
 
-class UpComingMoviesFragment @Inject constructor() : Fragment(R.layout.fragment_upcoming_movies) {
+class UpComingMoviesFragment<T> @Inject constructor() : Fragment(R.layout.fragment_upcoming_movies) {
 
     private lateinit var moviesRecyclerViewAdapter: MovieRecyclerViewAdapter
     private var fragmentUpcomingMoviesBinding: FragmentUpcomingMoviesBinding? = null
@@ -48,7 +48,7 @@ class UpComingMoviesFragment @Inject constructor() : Fragment(R.layout.fragment_
                         binding.rViewUpcomingMovies.layoutManager =
                             GridLayoutManager(requireContext(), 2)
                         moviesRecyclerViewAdapter.apply {
-                            setOnImageClickListener {
+                            setOnImageClickListener<String> {
                                 findNavController().navigate(
                                     UpComingMoviesFragmentDirections.actionUpComingMoviesFragmentToDetailsMovieFragment()
                                 )

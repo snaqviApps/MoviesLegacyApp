@@ -9,12 +9,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
-import learn.edu.movieslegacyapp.movieslist.data.repository.IMoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.data.repository.MoviesListRepository
 import learn.edu.movieslegacyapp.movieslist.util.UIState
 import javax.inject.Inject
 
 class MoviesListViewModel @Inject constructor (
-    private val iMoviesListRepository: IMoviesListRepository,
+    private val iMoviesListRepository: MoviesListRepository,
     categoryIsPopular: Boolean
 ) : ViewModel() {
 

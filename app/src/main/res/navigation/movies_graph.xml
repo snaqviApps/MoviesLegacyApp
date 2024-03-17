@@ -8,6 +8,9 @@
         android:id="@+id/popularMoviesFragment"
         android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment"
         android:label="PopularMoviesFragment">
+<!--        <argument-->
+<!--            android:name="detailsArgs"-->
+<!--            app:argType="learn." />-->
         <action
             android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragment"
             app:destination="@id/detailsMovieFragment"

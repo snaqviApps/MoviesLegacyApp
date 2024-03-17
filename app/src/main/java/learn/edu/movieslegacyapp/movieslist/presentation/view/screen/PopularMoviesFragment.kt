@@ -1,5 +1,6 @@
 package learn.edu.movieslegacyapp.movieslist.presentation.view.screen
 
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -54,7 +55,7 @@ class PopularMoviesFragment @Inject constructor(
                     binding.rViewPopularMovies.adapter = moviesRecyclerViewAdapter
                     binding.rViewPopularMovies.layoutManager = GridLayoutManager(requireContext(), 2)
                     moviesRecyclerViewAdapter.apply {
-                        setOnImageClickListener {
+                        setOnImageClickListener<String> {
                             findNavController().navigate(
                                 PopularMoviesFragmentDirections.actionPopularMoviesFragmentToDetailsMovieFragment()
                             )
