@@ -1,9 +1,11 @@
 package learn.edu.movieslegacyapp.di
 
 import dagger.Component
+import learn.edu.movieslegacyapp.MainActivity
 import learn.edu.movieslegacyapp.di.module.MovieModule
 import learn.edu.movieslegacyapp.di.module.RepositoryModule
-import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+import learn.edu.movieslegacyapp.movieslist.data.repository.MoviesListRepositoryImpl
+import learn.edu.movieslegacyapp.movieslist.presentation.view.MoviesFragmentFactory
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModel
 import learn.edu.movieslegacyapp.movieslist.presentation.view.viewmodel.MoviesListViewModelFactory
 import javax.inject.Singleton
@@ -28,8 +30,11 @@ import javax.inject.Singleton
 interface MoviesComponent {
 
     fun inject(moviesService: MoviesService)
-    fun inject(moviesListRepository: MoviesListRepository)
+    fun inject(moviesListRepository: MoviesListRepositoryImpl)
     fun inject(moviesListViewModel: MoviesListViewModel)
     fun inject(viewModelFactory: MoviesListViewModelFactory)
+
+    fun inject(moviesFragmentFactory: MoviesFragmentFactory)
+    fun inject(mainActivity: MainActivity)
 
 }

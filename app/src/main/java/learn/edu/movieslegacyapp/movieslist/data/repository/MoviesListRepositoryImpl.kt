@@ -1,4 +1,4 @@
-package learn.edu.movieslegacyapp.movieslist.presentation
+package learn.edu.movieslegacyapp.movieslist.data.repository
 
 import learn.edu.movieslegacyapp.di.DaggerMoviesComponent
 import learn.edu.movieslegacyapp.di.MoviesService
@@ -7,10 +7,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MoviesListRepository @Inject constructor(
+class MoviesListRepositoryImpl @Inject constructor(
     private val moviesService: MoviesService
-
-) : IMoviesListRepository {
+) : MoviesListRepository {
 
     init {
         DaggerMoviesComponent.create().inject(this)

@@ -1,8 +1,8 @@
-package learn.edu.movieslegacyapp.movieslist.presentation
+package learn.edu.movieslegacyapp.movieslist.data.repository
 
 import learn.edu.movieslegacyapp.movieslist.data.remote.response.MovieListDTO
 
-interface IMoviesListRepository {
+interface MoviesListRepository {
     suspend fun getMoviesList (
         category : Boolean,
         page : Int

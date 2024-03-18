@@ -3,7 +3,7 @@
 //import androidx.fragment.app.Fragment
 //import androidx.fragment.app.FragmentFactory
 //import kotlinx.coroutines.ExperimentalCoroutinesApi
-//import learn.edu.movieslegacyapp.movieslist.presentation.MoviesListRepository
+//import learn.edu.movieslegacyapp.movieslist.data.repository.MoviesListRepository
 //import javax.inject.Inject
 //
 //class MoviesFragmentsFactory (

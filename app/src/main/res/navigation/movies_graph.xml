@@ -7,13 +7,27 @@
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.PopularMoviesFragment"
-        android:label="PopularMoviesFragment" >
+        android:label="PopularMoviesFragment">
+<!--        <argument-->
+<!--            android:name="detailsArgs"-->
+<!--            app:argType="learn." />-->
         <action
-            android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragmnet"
-            app:destination="@id/detailsMovieFragmnet" />
+            android:id="@+id/action_popularMoviesFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/detailsMovieFragmnet"
+        android:id="@+id/upComingMoviesFragment"
+        android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.UpComingMoviesFragment"
+        android:label="UpComingMoviesFragment">
+        <action
+            android:id="@+id/action_upComingMoviesFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsMovieFragment"
         android:name="learn.edu.movieslegacyapp.movieslist.presentation.view.screen.DetailsMovieFragment"
-        android:label="DetailsMovieFragmnet" />
+        android:label="DetailsMovieFragment" >
+    </fragment>
+
 </navigation>
