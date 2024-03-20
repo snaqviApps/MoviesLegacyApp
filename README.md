@@ -1,4 +1,4 @@
-This App is Legacy counter part of actual Compose based App as it does same job, 
+This App is Legacy counter part of actual Compose based App https://github.com/snaqviApps/MoviesComposed.git as it does same job, 
 i.e: fetches the movies-data from IMDB portal
 
 The entry pages looks like as below: 
